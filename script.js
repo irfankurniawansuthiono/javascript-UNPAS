@@ -15,7 +15,7 @@ search.addEventListener('click', async function(){
 
 // getMovies()
 function getMovies(keyword){
-    return fetch('http://www.omdbapi.com/?apikey=d17c4e1&s='+keyword)
+    return fetch('https://www.omdbapi.com/?apikey=d17c4e1&s='+keyword)
     .then(response => {
         if ( !response.ok ){
             throw new Error(response.statusText)
@@ -41,7 +41,7 @@ function updateUI(movies){
 document.addEventListener('click', async function(e){
     if ( e.target.classList.contains('modal-detail-button') ){
         const detail = e.target.dataset.imdbid;
-        return fetch('http://www.omdbapi.com/?apikey=d17c4e1&i=' + detail)
+        return fetch('https://www.omdbapi.com/?apikey=d17c4e1&i=' + detail)
             .then(response => response.json())
             .then(response => moviesIMDBui(response))
          
